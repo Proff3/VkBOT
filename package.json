@@ -1,0 +1,27 @@
+{
+  "name": "vkbot",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-vk-bot-api": "^3.3.7",
+    "nodemon": "^2.0.6",
+    "vk-io": "^4.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Proff3/VkBOT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Proff3/VkBOT/issues"
+  },
+  "homepage": "https://github.com/Proff3/VkBOT#readme",
+  "description": ""
+}
