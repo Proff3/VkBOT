@@ -86,27 +86,27 @@ var teaKeyBoard = Keyboard.builder()
     })
     .row()
     .textButton({
-        label: 'Чай с облепихой - 30₽',
+        label: 'Чай фруктовый - 30₽',
     })
     .row()
     .textButton({
-        label: 'Чай ...',
+        label: 'Чай ягодный - 30₽',
     })
     .oneTime()
     .inline()
 
 var mantiKeyBoard = Keyboard.builder()
     .textButton({
-        label: 'Порция мант - 100₽',
+        label: 'Порция мант - 150₽',
     })
     .row()
     .textButton({
-        label: 'Две порции мант - 200₽',
+        label: 'Две порции мант - 300₽',
         color: Keyboard.PRIMARY_COLOR
     })
     .row()
     .textButton({
-        label: 'Три порции мант - 300₽',
+        label: 'Три порции мант - 450₽',
     })
     .oneTime()
     .inline()

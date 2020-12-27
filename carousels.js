@@ -4,7 +4,7 @@ var coffeCarousel = JSON.stringify({
     elements: [{
         title: "Капучино ☕",
         description: "При покупке 300мл и 350мл десерт в подарок!",
-        photo_id: '-200531371_457239030',
+        photo_id: '-200531371_457239033',
         buttons: [
             {
                 action: {
@@ -29,7 +29,7 @@ var coffeCarousel = JSON.stringify({
     }, {
         title: "Латте ☕",
         description: "При покупке 300мл и 350мл десерт в подарок!",
-        photo_id: '-200531371_457239030',
+        photo_id: '-200531371_457239035',
         buttons: [
             {
                 action: {
@@ -55,7 +55,7 @@ var coffeCarousel = JSON.stringify({
     {
         title: "Американо ☕ и Эспрессо ☕",
         description: "При покупке 250мл Американо ☕ десерт в подарок!",
-        photo_id: '-200531371_457239030',
+        photo_id: '-200531371_457239034',
         buttons: [
             {
                 action: {
@@ -86,8 +86,8 @@ var bakeryCarousel = JSON.stringify({
     type: "carousel",
     elements: [{
         title: "Чебуреки 🥟",
-        description: "При покупке от двух и более чебуреков - цена за один 25₽!",
-        photo_id: '-200531371_457239030',
+        description: "Домашние чебуреки из свежего мяса!",
+        photo_id: '-200531371_457239032',
         buttons: [
             {
                 action: {
@@ -98,7 +98,7 @@ var bakeryCarousel = JSON.stringify({
             {
                 action: {
                     type: "text",
-                    label: "2 чебурека - 50₽",
+                    label: "2 чебурека - 60₽",
                 },
                 color: Keyboard.PRIMARY_COLOR
             },
@@ -111,7 +111,7 @@ var bakeryCarousel = JSON.stringify({
     }, {
         title: "Блины 3 шт. 🥞",
         description: "Джем в подарок!",
-        photo_id: '-200531371_457239030',
+        photo_id: '-200531371_457239036',
         buttons: [
             {
                 action: {
@@ -142,7 +142,7 @@ var coctailCarousel = JSON.stringify({
     elements: [{
         title: "Новогодний коктейль 🥛",
         description: "При покупке коктейля сироп, маршмеллоу и леденец в подарок!",
-        photo_id: '-200531371_457239030',
+        photo_id: '-200531371_457239037',
         buttons: [
             {
                 action: {
