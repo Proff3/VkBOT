@@ -5,7 +5,8 @@ const { coffeCarousel, bakeryCarousel, coctailCarousel } = require('./carousels'
 const { getCoffe, getBakery, getTea, getManti, getCoctail } = require('./menus');
 const { VK } = require('vk-io');
 const bot = new VK({
-    token: process.env.TOKEN
+    token: process.env.TOKEN,
+    port: process.env.PORT || 5000
 });
 const api = bot.api;
 
