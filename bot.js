@@ -4,15 +4,19 @@ const { startKeyBoard, mainKeyBoard, timeKeyBoard, teaKeyBoard, mantiKeyBoard, n
 const { coffeCarousel, bakeryCarousel, coctailCarousel } = require('./carousels');
 const { getCoffe, getBakery, getTea, getManti, getCoctail } = require('./menus');
 const { VK } = require('vk-io');
+const https = require('https');
+let agent = https.createServer();
+agent.listen(process.env.PORT || 5000)
 const bot = new VK({
-    token: process.env.TOKEN
+    token: process.env.TOKEN,
+    server: agent
 });
 const api = bot.api;
 
 const orderPhrases = new RegExp('капучино|латте|американо|эспрессо|3в1|сироп|маршмеллоу|блин|чебурек|чай [з,с]|мант|коктейль [3,2]00мл', 'i');
 const timeExp = /\d\d:\d\d/;
 
-bot.listen(process.env.PORT || 5000);
+//bot.listen(process.env.PORT || 5000);
 bot.updates.on('message_new', async (context) => {
     console.log(context.senderId);
     if (context.text === 'Начать' || context.text === "Сделать заказ!") beginWork(context)
