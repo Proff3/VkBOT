@@ -84,7 +84,7 @@ async function pickTime(context) {
 function getTimes(context) {
     let times = [];
     let time = new Date();
-    time.setTime(time.getTime() + (6 + time.getTimezoneOffset() / 60) * 60 * 1000);
+    time.AddMinutes(180);
     console.log(time);
     localDB[context.senderId].hasManti ?
         time.AddMinutes(80) : time.AddMinutes(5);
@@ -122,7 +122,8 @@ async function buyMessage(context) {
     context.state = { isHandled: true };
     let [hours, minutes] = context.text.split(":");
     let time = new Date();
-    time.setTime(time.getTime() + (6 + time.getTimezoneOffset() / 60) * 60 * 1000);
+    time.AddMinutes(180);
+    //time.setTime(time.getTime() + (6 + time.getTimezoneOffset() / 60) * 60 * 1000);
     time.setMinutes(+minutes);
     time.setHours(+hours);
     localDB[id].time = context.text;
