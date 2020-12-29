@@ -84,7 +84,7 @@ async function pickTime(context) {
 function getTimes(context) {
     let times = [];
     let time = new Date();
-    time.setTime(time.getTime() + (3 + time.getTimezoneOffset() / 60) * 60 * 1000);
+    time.setTime(time.getTime() + (6 + time.getTimezoneOffset() / 60) * 60 * 1000);
     console.log(time);
     localDB[context.senderId].hasManti ?
         time.AddMinutes(80) : time.AddMinutes(5);
@@ -122,7 +122,7 @@ async function buyMessage(context) {
     context.state = { isHandled: true };
     let [hours, minutes] = context.text.split(":");
     let time = new Date();
-    time.setTime(time.getTime() + (3 + time.getTimezoneOffset() / 60) * 60 * 1000);
+    time.setTime(time.getTime() + (6 + time.getTimezoneOffset() / 60) * 60 * 1000);
     time.setMinutes(+minutes);
     time.setHours(+hours);
     localDB[id].time = context.text;
@@ -232,7 +232,6 @@ setInterval(() => console.log("don`t sleep, Heroku"), 45000)
 
 Date.prototype.AddMinutes = function (minutes) {
     let time = this;
-    time.setTime(time.getTime() + (3 + time.getTimezoneOffset() / 60) * 60 * 1000);
     for (let i = 0; i < minutes; i++) {
         if (time.getMinutes() > 58) {
             time.setMinutes(0);
