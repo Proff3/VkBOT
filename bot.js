@@ -129,7 +129,7 @@ async function buyMessage(context) {
     localDB[id].time = context.text;
     createPickedTime(time);
 
-    let message = "Ваш заказ:\n" + localDB[id].order.join("\n") + "\nВыбранное время:" + localDB[id].time;
+    let message = "Ваш заказ:\n" + localDB[id].order.join("\n") + "\nВыбранное время - " + localDB[id].time;
     let random_id = context.conversationMessageId;
     await api.messages.send({
         message,
