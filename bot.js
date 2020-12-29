@@ -84,10 +84,18 @@ async function pickTime(context) {
 function getTimes(context) {
     let times = [];
     let time = new Date();
-    time = localDB[context.senderId].hasManti ?
+    time.setTime(time.getTime() + (3 + time.getTimezoneOffset() / 60) * 60 * 1000);
+    localDB[context.senderId].hasManti ?
         time.AddMinutes(80) : time.AddMinutes(5);
     let idx = theClosestTime(time);
-    console.log(pickedTimes[idx]);
+    //console.log(pickedTimes[idx]);
+    if (time.getHours() > 21 || time.getHours() < 6) {
+        if (time.getHours() <= 23) time.AddMinutes(240);
+        while (time.getHours() != 7) {
+            time.AddMinutes(1);
+        }
+    };//work days
+    if ((time.getDay() == 0 || time.getDay() == 6) && time.getHours() < 8) time.AddMinutes(120);//weekend
     while (times.length < 30) {
         if (Math.abs(time - pickedTimes[idx]) > 150000) {
             let minutes = time.getMinutes() < 10 ? "0" + time.getMinutes() : time.getMinutes();
@@ -113,6 +121,7 @@ async function buyMessage(context) {
     context.state = { isHandled: true };
     let [hours, minutes] = context.text.split(":");
     let time = new Date();
+    time.setTime(time.getTime() + (3 + time.getTimezoneOffset() / 60) * 60 * 1000);
     time.setMinutes(+minutes);
     time.setHours(+hours);
     localDB[id].time = context.text;
@@ -218,13 +227,16 @@ async function psuhTheOrderToBaristas(context, id) {
     });
 }
 
-Date.prototype.AddMinutes = (minutes) => {
-    let time = new Date();
+setInterval(() => console.log("don`t sleep, Heroku"), 45000)
+
+Date.prototype.AddMinutes = function (minutes) {
+    let time = this;
+    time.setTime(time.getTime() + (3 + time.getTimezoneOffset() / 60) * 60 * 1000);
     for (let i = 0; i < minutes; i++) {
         if (time.getMinutes() > 58) {
             time.setMinutes(0);
             time.setHours(time.getHours() + 1);
         } else time.setMinutes(time.getMinutes() + 1)
     }
-    return time;
+    //return time;
 }
