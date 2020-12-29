@@ -85,6 +85,7 @@ function getTimes(context) {
     let times = [];
     let time = new Date();
     time.setTime(time.getTime() + (3 + time.getTimezoneOffset() / 60) * 60 * 1000);
+    console.log(time);
     localDB[context.senderId].hasManti ?
         time.AddMinutes(80) : time.AddMinutes(5);
     let idx = theClosestTime(time);
