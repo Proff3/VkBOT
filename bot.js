@@ -84,7 +84,7 @@ async function pickTime(context) {
 function getTimes(context) {
     let times = [];
     let time = new Date();
-    time.AddMinutes(180);
+    time.AddMinutes(180);//Changing UTC
     console.log(time);
     localDB[context.senderId].hasManti ?
         time.AddMinutes(80) : time.AddMinutes(5);
@@ -122,7 +122,7 @@ async function buyMessage(context) {
     context.state = { isHandled: true };
     let [hours, minutes] = context.text.split(":");
     let time = new Date();
-    time.AddMinutes(180);
+    time.AddMinutes(180);//Changing UTC
     //time.setTime(time.getTime() + (6 + time.getTimezoneOffset() / 60) * 60 * 1000);
     time.setMinutes(+minutes);
     time.setHours(+hours);
@@ -229,7 +229,11 @@ async function psuhTheOrderToBaristas(context, id) {
     });
 }
 
-setInterval(() => console.log("don`t sleep, Heroku"), 45000)
+setInterval(() => {
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+        .then(response => { return response.json() })
+        .catch(err => console.log(err))
+}, 25 * 60 * 1000)
 
 Date.prototype.AddMinutes = function (minutes) {
     let time = this;
