@@ -1,5 +1,6 @@
 require('dotenv').config();
 
+const fetch = require("node-fetch");
 const { startKeyBoard, mainKeyBoard, timeKeyBoard, teaKeyBoard, mantiKeyBoard, newOrderKeyBoard, mistakeKeyBoard, } = require('./keyborads');
 const { coffeCarousel, bakeryCarousel, coctailCarousel } = require('./carousels');
 const { getCoffe, getBakery, getTea, getManti, getCoctail } = require('./menus');
