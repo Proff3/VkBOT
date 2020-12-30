@@ -233,7 +233,7 @@ setInterval(() => {
     fetch('https://jsonplaceholder.typicode.com/todos/1')
         .then(response => { return response.json() })
         .catch(err => console.log(err))
-}, 25 * 60 * 1000)
+}, 3 * 60 * 1000)
 
 Date.prototype.AddMinutes = function (minutes) {
     let time = this;
