@@ -18,7 +18,7 @@ function timeKeyBoard(times) {
 
     });
     keyboard.oneTime();
-    return keyboard.inline();
+    return keyboard;
 }
 var startKeyBoard = Keyboard.builder()
     .textButton({
