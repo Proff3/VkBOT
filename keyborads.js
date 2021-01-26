@@ -3,7 +3,11 @@ function timeKeyBoard(times) {
     let keyboard = Keyboard.builder();
     times.forEach((item, idx) => {
         id = item.split('').reverse()[0]
+<<<<<<< HEAD
         if ((idx + 1) % 10 == 0) {
+=======
+        if ((idx + 1) % 5 == 0) {
+>>>>>>> parent of 14daf54... fix
             keyboard.textButton({
                 label: item,
                 color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
