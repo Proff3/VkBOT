@@ -71,11 +71,12 @@ async function pickTime(context) {
     let random_id = context.conversationMessageId;
     if (!!localDB[context.senderId].order[0]) { //Проверка на дурака, если человек ничего не заказал
         let times = getTimes(context);
+        let keyboard = timeKeyBoard(times)
         let message = localDB[id].hasManti ?
             'Выберите время, пожалуйста! Если меню не отобразилось, нажмите на иконку квадрата в строке набора текста. (Время приготовления мант 45 мин.)' : "Выберите время, пожалуйста! Если меню не отобразилось, нажмите на иконку квадрата в строке набора текста."
         await api.messages.send({
             message,
-            keyboard: timeKeyBoard(times),
+            keyboard,
             random_id,
             user_id: id
         });
