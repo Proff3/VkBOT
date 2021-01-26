@@ -1,5 +1,4 @@
-//const { Keyboard } = require('vk-io');
-import { Keyboard } from 'vk-io';
+const { Keyboard } = require('vk-io');
 var coffeCarousel = JSON.stringify({
     type: "carousel",
     elements: [{

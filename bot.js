@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const { startKeyBoard, mainKeyBoard, timeKeyBoard, teaKeyBoard, mantiKeyBoard, newOrderKeyBoard, mistakeKeyBoard, } = require('./keyborads');
 const { coffeCarousel, bakeryCarousel, coctailCarousel } = require('./carousels');
 const { getCoffe, getBakery, getTea, getManti, getCoctail } = require('./menus');
-import { VK } from 'vk-io';
+const { VK } = require('vk-io');
 const https = require('https');
 let agent = https.createServer();
 agent.listen(process.env.PORT || 5000)
@@ -70,6 +70,7 @@ async function pickTime(context) {
     let random_id = context.conversationMessageId;
     if (!!localDB[context.senderId].order[0]) { //Проверка на дурака, если человек ничего не заказал
         let times = getTimes(context);
+
         let message = localDB[id].hasManti ?
             'Выберите время, пожалуйста! Если меню не отобразилось, нажмите на иконку квадрата в строке набора текста. (Время приготовления мант 45 мин.)' : "Выберите время, пожалуйста! Если меню не отобразилось, нажмите на иконку квадрата в строке набора текста."
         await api.messages.send({

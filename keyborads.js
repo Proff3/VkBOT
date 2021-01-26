@@ -1,5 +1,5 @@
 //const { Keyboard } = require('vk-io');
-import { Keyboard } from 'vk-io';
+const { Keyboard } = require('vk-io');
 function timeKeyBoard(times) {
     let keyboard = Keyboard.builder();
     times.forEach((item, idx) => {
