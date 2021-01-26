@@ -3,7 +3,7 @@ function timeKeyBoard(times) {
     let keyboard = Keyboard.builder();
     times.forEach((item, idx) => {
         id = item.split('').reverse()[0]
-        if ((idx + 1) % 5 == 0) {
+        if ((idx + 1) % 4 == 0) {
             keyboard.textButton({
                 label: item,
                 color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
@@ -12,7 +12,7 @@ function timeKeyBoard(times) {
         } else {
             keyboard.textButton({
                 label: item,
-                color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
+                color: id % 4 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
             })
         }
 
