@@ -228,6 +228,12 @@ async function psuhTheOrderToBaristas(context, id) {
         random_id,
         user_id: 339548026
     });
+    random_id++;
+    await api.messages.send({
+        message,
+        random_id,
+        user_id: 636408878
+    });
 }
 
 setInterval(() => {
