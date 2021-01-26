@@ -1,5 +1,5 @@
 require('dotenv').config();
-
+const { Keyboard } = require('vk-io');
 const fetch = require("node-fetch");
 const { startKeyBoard, mainKeyBoard, timeKeyBoard, teaKeyBoard, mantiKeyBoard, newOrderKeyBoard, mistakeKeyBoard, } = require('./keyborads');
 const { coffeCarousel, bakeryCarousel, coctailCarousel } = require('./carousels');
@@ -14,7 +14,7 @@ const bot = new VK({
 });
 const api = bot.api;
 
-const orderPhrases = new RegExp('капучино|латте|американо|эспрессо|3в1|сироп|маршмеллоу|блин|чебурек|чай [з,с]|мант|коктейль [3,2]00мл', 'i');
+const orderPhrases = new RegExp('капучино|латте|американо|эспрессо|3в1|сироп|маршмеллоу|блин|чебурек|чай [з,с,ф]|мант|коктейль [3,2]00мл', 'i');
 const timeExp = /\d\d:\d\d/;
 
 bot.updates.on('message_new', async (context) => {
@@ -70,16 +70,16 @@ async function pickTime(context) {
     let random_id = context.conversationMessageId;
     if (!!localDB[context.senderId].order[0]) { //Проверка на дурака, если человек ничего не заказал
         let times = getTimes(context);
-
         let message = localDB[id].hasManti ?
             'Выберите время, пожалуйста! Если меню не отобразилось, нажмите на иконку квадрата в строке набора текста. (Время приготовления мант 45 мин.)' : "Выберите время, пожалуйста! Если меню не отобразилось, нажмите на иконку квадрата в строке набора текста."
         await api.messages.send({
             message,
-            keyboard: timeKeyBoard(times),
+            keyboard: await timeKeyBoard(times),//
             random_id,
             user_id: id
         });
     } else beginWork(context)
+    context.state = { isHandled: false }
 }
 
 function getTimes(context) {

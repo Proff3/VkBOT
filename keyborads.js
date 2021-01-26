@@ -1,26 +1,20 @@
 //const { Keyboard } = require('vk-io');
 const { Keyboard } = require('vk-io');
-function timeKeyBoard(times) {
+async function timeKeyBoard(times) {
     let keyboard = Keyboard.builder();
     times.forEach((item, idx) => {
-        id = item.split('').reverse()[0]
-        if ((idx + 1) % 5 == 0) {
-            keyboard.textButton({
-                label: item,
-                color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
-            })
-            keyboard.row()
-        } else {
-            keyboard.textButton({
-                label: item,
-                color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
-            })
-        }
-
+        id = item.split("").reverse()[0]
+        keyboard.textButton({
+            label: item,
+            color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
+        })
+        idx++
+        if (idx % 5 == 0 && idx != 30) keyboard.row();
     });
     keyboard.oneTime();
     return keyboard;
 }
+
 var startKeyBoard = Keyboard.builder()
     .textButton({
         label: 'Кофе ☕',
