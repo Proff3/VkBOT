@@ -8,7 +8,7 @@ function timeKeyBoard(times) {
                 label: item,
                 color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
             })
-            //keyboard.row()
+            keyboard.row()
         } else {
             keyboard.textButton({
                 label: item,
