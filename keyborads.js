@@ -17,7 +17,8 @@ function timeKeyBoard(times) {
         }
 
     });
-    return keyboard.oneTime()
+    keyboard.oneTime();
+    return keyboard
 }
 var startKeyBoard = Keyboard.builder()
     .textButton({

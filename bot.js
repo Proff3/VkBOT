@@ -30,7 +30,7 @@ bot.updates.on('message_new', async (context) => {
     if (context.text === 'Просмотреть заказ') getOrder(context, api);
     if (context.text === 'Выбрать время') pickTime(context);
     if (context.text === 'Отменить заказ') cancelOrder(context);
-    if (context.text === 'Оправить заказ!') pushOrder(context);
+    if (context.text === 'Отправить заказ!') pushOrder(context);
     if (timeExp.test(context.text)) buyMessage(context);
     if (orderPhrases.test(context.text)) continueWork(context);
     if (!context.state.isHandled) catchFool(context);
