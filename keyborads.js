@@ -113,7 +113,7 @@ var mantiKeyBoard = Keyboard.builder()
 
 var newOrderKeyBoard = Keyboard.builder()
     .textButton({
-        label: 'Оправить заказ!',
+        label: 'Отправить заказ!',
         color: Keyboard.POSITIVE_COLOR
     })
     .row()
