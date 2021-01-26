@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 const { startKeyBoard, mainKeyBoard, timeKeyBoard, teaKeyBoard, mantiKeyBoard, newOrderKeyBoard, mistakeKeyBoard, } = require('./keyborads');
 const { coffeCarousel, bakeryCarousel, coctailCarousel } = require('./carousels');
 const { getCoffe, getBakery, getTea, getManti, getCoctail } = require('./menus');
-const { VK } = require('vk-io');
+import { VK } from 'vk-io';
 const https = require('https');
 let agent = https.createServer();
 agent.listen(process.env.PORT || 5000)

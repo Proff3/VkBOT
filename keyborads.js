@@ -1,44 +1,25 @@
-const { Keyboard } = require('vk-io');
+//const { Keyboard } = require('vk-io');
+import { Keyboard } from 'vk-io';
 function timeKeyBoard(times) {
-    // let keyboard = Keyboard.builder();
-    // times.forEach((item, idx) => {
-    //     id = item.split('').reverse()[0]
-    //     if ((idx + 1) % 5 == 0) {
-    //         keyboard.textButton({
-    //             label: item,
-    //             color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
-    //         })
-    //         keyboard.row()
-    //     } else {
-    //         keyboard.textButton({
-    //             label: item,
-    //             color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
-    //         })
-    //     }
+    let keyboard = Keyboard.builder();
+    times.forEach((item, idx) => {
+        id = item.split('').reverse()[0]
+        if ((idx + 1) % 5 == 0) {
+            keyboard.textButton({
+                label: item,
+                color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
+            })
+            keyboard.row()
+        } else {
+            keyboard.textButton({
+                label: item,
+                color: id % 5 == 0 ? Keyboard.PRIMARY_COLOR : Keyboard.SECONDARY_COLOR
+            })
+        }
 
-    // });
-    // keyboard.oneTime();
-    // return keyboard;
-    return Keyboard.builder()
-        .textButton({
-            label: 'Кофе ☕',
-        })
-        .textButton({
-            label: 'Выпечка 🥟',
-        })
-        .row()
-        .textButton({
-            label: 'Чай',
-        })
-        .textButton({
-            label: 'Манты 🍲',
-        })
-        .row()
-        .textButton({
-            label: 'Новогодний коктейль 🥛',
-            color: Keyboard.POSITIVE_COLOR
-        })
-        .oneTime()
+    });
+    keyboard.oneTime();
+    return keyboard;
 }
 var startKeyBoard = Keyboard.builder()
     .textButton({
