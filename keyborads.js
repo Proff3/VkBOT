@@ -39,7 +39,6 @@ function timeKeyBoard(times) {
             color: Keyboard.POSITIVE_COLOR
         })
         .oneTime()
-        .inline()
 }
 var startKeyBoard = Keyboard.builder()
     .textButton({
